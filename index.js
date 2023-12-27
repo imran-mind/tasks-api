@@ -7,6 +7,10 @@ const errorHandler = require('./middlewares/errorHandler');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+const cors = require('cors');
+
+// Enable CORS for all routes
+app.use(cors());
 //which helps to allow req.body in POST and PUT api
 app.use(express.json());
 
