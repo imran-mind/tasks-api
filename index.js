@@ -6,6 +6,7 @@ const taskRoutes = require('./routes/tasks');
 const errorHandler = require('./middlewares/errorHandler');
 const app = express();
 const PORT = process.env.PORT || 8080;
+const path = require('path');
 
 const cors = require('cors');
 
@@ -14,9 +15,17 @@ app.use(cors());
 //which helps to allow req.body in POST and PUT api
 app.use(express.json());
 
-app.get('/', (req, res, next) => {
-    res.send('Hello World');
-})
+// Serve static files from the 'build' folder
+app.use(express.static(path.join(__dirname, 'build')));
+
+// Define additional routes or APIs as needed
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
+// app.get('/', (req, res, next) => {
+//     res.send('Hello World');
+// })
 
 app.use('/api/v1/tasks', taskRoutes);
 // not found middleware
