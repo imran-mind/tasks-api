@@ -1,5 +1,5 @@
 const BadRequestError = require("../errors/BadRequestError");
-const CustomError = require("../errors/customError");
+const CustomError = require("../errors/CustomError");
 const { serverError } = require("../errors/serverError");
 const Task = require("../models/Task");
 const { okResponse } = require("../utils");

@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const CustomError = require('../errors/customError');
 
 const TaskModel = mongoose.Schema({
     name: {
