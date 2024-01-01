@@ -5,11 +5,12 @@ const {
     getTaskById,
     deleteTaskById
 } = require('../controllers/tasks');
+const validateTask = require('../validation');
 
 const router = require('express').Router();
 
-router.post('/', createTask);
-router.put('/:id', updateTask);
+router.post('/', validateTask, createTask);
+router.put('/:id', validateTask, updateTask);
 router.get('/', getAllTasks);
 router.get('/:id', getTaskById);
 router.delete('/:id', deleteTaskById);
